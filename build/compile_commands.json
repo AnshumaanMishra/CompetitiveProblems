@@ -1,0 +1,80 @@
+[
+{
+  "directory": "/home/anshumaanmishra/Development/CompetitiveProblems/build",
+  "command": "/usr/bin/g++ -g -std=gnu++14 -o CMakeFiles/CodeForces.dir/112A.cpp.o -c /home/anshumaanmishra/Development/CompetitiveProblems/CodeForces/112A.cpp",
+  "file": "/home/anshumaanmishra/Development/CompetitiveProblems/CodeForces/112A.cpp",
+  "output": "CMakeFiles/CodeForces.dir/112A.cpp.o"
+},
+{
+  "directory": "/home/anshumaanmishra/Development/CompetitiveProblems/build",
+  "command": "/usr/bin/g++ -g -std=gnu++14 -o CMakeFiles/CodeForces.dir/236A.cpp.o -c /home/anshumaanmishra/Development/CompetitiveProblems/CodeForces/236A.cpp",
+  "file": "/home/anshumaanmishra/Development/CompetitiveProblems/CodeForces/236A.cpp",
+  "output": "CMakeFiles/CodeForces.dir/236A.cpp.o"
+},
+{
+  "directory": "/home/anshumaanmishra/Development/CompetitiveProblems/build",
+  "command": "/usr/bin/g++ -g -std=gnu++14 -o CMakeFiles/CodeForces.dir/263A.cpp.o -c /home/anshumaanmishra/Development/CompetitiveProblems/CodeForces/263A.cpp",
+  "file": "/home/anshumaanmishra/Development/CompetitiveProblems/CodeForces/263A.cpp",
+  "output": "CMakeFiles/CodeForces.dir/263A.cpp.o"
+},
+{
+  "directory": "/home/anshumaanmishra/Development/CompetitiveProblems/build",
+  "command": "/usr/bin/g++ -g -std=gnu++14 -o CMakeFiles/CodeForces.dir/266A.cpp.o -c /home/anshumaanmishra/Development/CompetitiveProblems/CodeForces/266A.cpp",
+  "file": "/home/anshumaanmishra/Development/CompetitiveProblems/CodeForces/266A.cpp",
+  "output": "CMakeFiles/CodeForces.dir/266A.cpp.o"
+},
+{
+  "directory": "/home/anshumaanmishra/Development/CompetitiveProblems/build",
+  "command": "/usr/bin/g++ -g -std=gnu++14 -o CMakeFiles/CodeForces.dir/281A.cpp.o -c /home/anshumaanmishra/Development/CompetitiveProblems/CodeForces/281A.cpp",
+  "file": "/home/anshumaanmishra/Development/CompetitiveProblems/CodeForces/281A.cpp",
+  "output": "CMakeFiles/CodeForces.dir/281A.cpp.o"
+},
+{
+  "directory": "/home/anshumaanmishra/Development/CompetitiveProblems/build",
+  "command": "/usr/bin/g++ -g -std=gnu++14 -o CMakeFiles/CodeForces.dir/339A.cpp.o -c /home/anshumaanmishra/Development/CompetitiveProblems/CodeForces/339A.cpp",
+  "file": "/home/anshumaanmishra/Development/CompetitiveProblems/CodeForces/339A.cpp",
+  "output": "CMakeFiles/CodeForces.dir/339A.cpp.o"
+},
+{
+  "directory": "/home/anshumaanmishra/Development/CompetitiveProblems/build",
+  "command": "/usr/bin/g++ -g -std=gnu++14 -o CMakeFiles/CodeForces.dir/50A.cpp.o -c /home/anshumaanmishra/Development/CompetitiveProblems/CodeForces/50A.cpp",
+  "file": "/home/anshumaanmishra/Development/CompetitiveProblems/CodeForces/50A.cpp",
+  "output": "CMakeFiles/CodeForces.dir/50A.cpp.o"
+},
+{
+  "directory": "/home/anshumaanmishra/Development/CompetitiveProblems/build",
+  "command": "/usr/bin/g++ -g -std=gnu++14 -o CMakeFiles/CodeForces.dir/50b.cpp.o -c /home/anshumaanmishra/Development/CompetitiveProblems/CodeForces/50b.cpp",
+  "file": "/home/anshumaanmishra/Development/CompetitiveProblems/CodeForces/50b.cpp",
+  "output": "CMakeFiles/CodeForces.dir/50b.cpp.o"
+},
+{
+  "directory": "/home/anshumaanmishra/Development/CompetitiveProblems/build",
+  "command": "/usr/bin/g++ -g -std=gnu++14 -o CMakeFiles/CodeForces.dir/791A.cpp.o -c /home/anshumaanmishra/Development/CompetitiveProblems/CodeForces/791A.cpp",
+  "file": "/home/anshumaanmishra/Development/CompetitiveProblems/CodeForces/791A.cpp",
+  "output": "CMakeFiles/CodeForces.dir/791A.cpp.o"
+},
+{
+  "directory": "/home/anshumaanmishra/Development/CompetitiveProblems/build",
+  "command": "/usr/bin/g++ -g -std=gnu++14 -o CMakeFiles/CodeForces.dir/nextRound.cpp.o -c /home/anshumaanmishra/Development/CompetitiveProblems/CodeForces/nextRound.cpp",
+  "file": "/home/anshumaanmishra/Development/CompetitiveProblems/CodeForces/nextRound.cpp",
+  "output": "CMakeFiles/CodeForces.dir/nextRound.cpp.o"
+},
+{
+  "directory": "/home/anshumaanmishra/Development/CompetitiveProblems/build",
+  "command": "/usr/bin/g++ -g -std=gnu++14 -o CMakeFiles/CodeForces.dir/SymbolPairs.cpp.o -c /home/anshumaanmishra/Development/CompetitiveProblems/CodeForces/SymbolPairs.cpp",
+  "file": "/home/anshumaanmishra/Development/CompetitiveProblems/CodeForces/SymbolPairs.cpp",
+  "output": "CMakeFiles/CodeForces.dir/SymbolPairs.cpp.o"
+},
+{
+  "directory": "/home/anshumaanmishra/Development/CompetitiveProblems/build",
+  "command": "/usr/bin/g++ -g -std=gnu++14 -o CMakeFiles/CodeForces.dir/temp.cpp.o -c /home/anshumaanmishra/Development/CompetitiveProblems/CodeForces/temp.cpp",
+  "file": "/home/anshumaanmishra/Development/CompetitiveProblems/CodeForces/temp.cpp",
+  "output": "CMakeFiles/CodeForces.dir/temp.cpp.o"
+},
+{
+  "directory": "/home/anshumaanmishra/Development/CompetitiveProblems/build",
+  "command": "/usr/bin/g++ -g -std=gnu++14 -o CMakeFiles/CodeForces.dir/tempCodeRunnerFile.cpp.o -c /home/anshumaanmishra/Development/CompetitiveProblems/CodeForces/tempCodeRunnerFile.cpp",
+  "file": "/home/anshumaanmishra/Development/CompetitiveProblems/CodeForces/tempCodeRunnerFile.cpp",
+  "output": "CMakeFiles/CodeForces.dir/tempCodeRunnerFile.cpp.o"
+}
+]
