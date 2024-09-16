@@ -1,3 +1,5 @@
-or(int i = 0; i < size; i++){
-    //     printf("i = %d, char = %c\n", i, string[i]);
-    // }
++= fresh;
+        left += (fresh % b);
+        fresh = left / b + (a / b);
+        left = left % b;
+        a /= b;
