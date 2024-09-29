@@ -49,6 +49,7 @@ int getShortestRoute(vector<vector <int>> paths, int start,  vector<int>* Traver
         // printMap(*TraversedMap);        
         if(!((*TraversedMap)[i])){
             // printf("ShortestRoute: %d \n", getShortestRoute(paths, i, TraversedMap));
+            // Append to path_lengths currentDistance+shortest distance of following path
             pathLength.push_back(paths[start][i] + getShortestRoute(paths, i, TraversedMap));
         }
         *TraversedMap = tempMap;
