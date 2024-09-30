@@ -18,6 +18,9 @@ class BigInt{
                 _length++;
                 inputNum /= 10;
             }
+            if(inputNum == 0){
+                _mainNumber.push_back(0);
+            }
         }
 
         void set(int index, int value){
@@ -34,6 +37,9 @@ class BigInt{
         }
 
         int operator[](int index){
+            if(index >= getLength()){
+                return 0;
+            }
             return _mainNumber[index];
         }
 
@@ -70,24 +76,6 @@ class BigInt{
             }
             // answer.clean();
             return answer;
-        }
-
-        int* subtract(int digit1, int digit2, int borrow){
-            int* result = new int[2 * sizeof(int)];
-            *(result + 1) = 0;
-            digit1 -= borrow;
-            if(digit1 < 0){
-                digit1 = 9;
-                *(result + 1) = 1;
-            }
-            if(digit1 >= digit2 + borrow){
-                *result = (digit1 - borrow) - digit2;
-            }
-            else{
-                *result = 10 + digit1 - digit2;
-                *(result + 1) = 1;
-            }
-            return result;
         }
 
         void push(int value){
@@ -191,30 +179,48 @@ class BigInt{
             return false;
         }
 
+        int* subtract(int digit1, int digit2, int borrow){
+            int* result = new int[2 * sizeof(int)];
+            *(result + 1) = 0;
+            // digit1 -= borrow;
+            if(digit1 < 0){
+                digit1 = 9;
+                *(result + 1) = 1;
+            }
+            if(digit1 >= digit2 + borrow){
+                *result = (digit1 - borrow) - digit2;
+            }
+            else{
+                *result = 10 + digit1 - digit2;
+                *(result + 1) = 1;
+            }
+            return result;
+        }
+
         BigInt operator-(BigInt _num2){
             if(*this < _num2){
                 BigInt temp = _num2 - *this;
-                temp.push(-1);
+                temp.set(temp.getLength() - 1, -1);
+                // temp.setLength(temp.getLength() + 1);
                 return temp;
             }
             int len1 = getLength();
             int len2 = _num2.getLength();
-            int maxLen = (len1 > len2) ? len1 : len2;
-            BigInt answer = BigInt(0, maxLen + 1);
+            BigInt answer = BigInt(0, len1 + 1);
             int borrow = 0;
-            // cout << len1 << " " << len2 << " " << (len2 - len1) << endl;
+            cout << len1 << " " << len2 << " " << (len2 - len1) << endl;
             if(len2 < len1){
                 for(int i = 0; i < (len1 - len2); i++){
                     _num2.push(0);
                 }
             }
             _num2.push(0);
-            // _num2.printNum();
-            // cout << endl;
-            for(int i = 0; i < maxLen; i++){
-                // cout << i << ", " << _mainNumber[i] << ", " << _num2[i] << ", " << borrow << endl;
+            _num2.printNum();
+            cout << endl;
+            for(int i = 0; i < len1; i++){
+                cout << i << ", " << _mainNumber[i] << ", " << _num2[i] << ", " << borrow << endl;
                 int* result = subtract(_mainNumber[i],  _num2[i], borrow);
-                // cout << "Result = " << *result << " Borrow = " << *(result + 1) << endl;
+                cout << "Result = " << *result << " Borrow = " << *(result + 1) << endl;
                 answer.set(i, *result);
                 borrow = *(result + 1);
             }
@@ -271,7 +277,7 @@ class BigInt{
 
         void printNum(){
             bool leadingZero = true;
-            for(int i = getLength()-1; i >= 0; i--){
+            for(int i = getLength() - 1; i >= 0; i--){
                 // if((getLength() - 1 - i) % 3 == 0){
                 //     printf(",");
                 // }
@@ -289,6 +295,14 @@ class BigInt{
                 }
             }
             printf("\n");
+        }
+
+        void printWhole(){
+            cout << _mainNumber.size() << " " << getLength() << endl;
+            for(int i = _mainNumber.size() - 1; i >= 0; i--){
+                cout << _mainNumber[i];
+            }
+            cout << endl;
         }
 
         void clean(){
@@ -315,30 +329,50 @@ ostream& operator<<(ostream& os, BigInt& int1){
     return os;
 }
 
-/*
+
+// BigInt bigFactorial(BigInt n){
+//     cout << n << endl;
+//     BigInt one = BigInt(1, 0);
+//     if(n == one){
+//         return one;
+//     }
+//     // cout << n - BigInt(1, 0) << endl;
+//     BigInt nextNum = n - one; //bigFactorial(n - BigInt(1, 0));
+//     nextNum.printNum();
+//     BigInt smallFact = bigFactorial(nextNum);
+//     smallFact.printNum();
+//     // smallFact.clean();
+//     return n;
+// }
+
+
 BigInt bigFactorial(BigInt n){
-    cout << n << endl;
-    if(n == BigInt(1, 0)){
-        return BigInt(1, 0);
+    BigInt one = BigInt(1, 0);
+    BigInt product = one;
+    while(n > BigInt(0, 0)){
+        cout << "Product: ";
+        product = product * n;
+        product.printNum();
+        n = n - one;
     }
-    BigInt smallFact = bigFactorial(n - BigInt(1, 0));
-    // smallFact.clean();
-    return n * smallFact;
+    return product;
 }
-*/
+
 
 int main(){
-    BigInt int1 = BigInt(999999999999, 0);
-    BigInt int2 = BigInt(9999, 0);
-    BigInt sum = int1 + int1;
-    BigInt difference = int2 - int1;
-    BigInt prodcut = int1 * int2;
+    BigInt int1 = BigInt(9, 0);
+    BigInt int2 = BigInt(20, 0);
+    // BigInt sum = int1 + int2;
+    BigInt difference = int1 - int2;
+    // BigInt prodcut = int1 * int2;
     // cout << "Int1 = " << int1 << endl << "Int2 = " << int2 << endl;
-    sum.printNum();
+    // sum.printNum();
+    // int1.printNum();
+    // int2.printNum();
     difference.printNum();
-    prodcut.printNum();
+    // prodcut.printNum();
     // cout << "Sum = " << sum << endl << "Difference = " << difference << endl << "Product = " << prodcut << endl;
-    // BigInt factorial = bigFactorial(int2);
+    // BigInt factorial = bigFactorial(BigInt(20, 0));
     // cout << "exit" << endl;
     // cout << factorial << endl;
     // factorial.printNum();
