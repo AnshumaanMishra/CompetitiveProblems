@@ -1,0 +1,14 @@
+{
+    "configurations": [
+      {
+        "name": "Debug",
+        "type": "cppdbg",
+        "request": "launch",
+        "program": "${workspaceRoot}\\${fileBasenameNoExtension}.exe",
+        "stopAtEntry": true,
+        "cwd": "${workspaceRoot}",
+        "preLaunchTask": "Build Debug",
+        "miDebuggerPath": "c:\\mingw64\\bin\\gdb.exe"
+      }
+    ]
+  }
