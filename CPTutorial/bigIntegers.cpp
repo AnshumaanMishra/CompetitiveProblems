@@ -183,13 +183,16 @@ class BigInt{
         int* subtract(int digit1, int digit2, int borrow){
             int* result = new int[2 * sizeof(int)];
             *(result + 1) = 0;
-            // digit1 -= borrow;
-            if(digit1 - borrow < 0){
+            digit1 -= borrow;
+            if(digit1 < 0){
                 digit1 = 9;
                 *(result + 1) = 1;
             }
-            if(digit1 >= digit2 + borrow){
-                *result = (digit1 - borrow) - digit2;
+            // else{
+            //     digit1 -= borrow;
+            // }
+            if(digit1 >= digit2){
+                *result = (digit1) - digit2;
             }
             else{
                 *result = 10 + digit1 - digit2;
@@ -276,6 +279,8 @@ class BigInt{
             return answer;
         }
 
+        
+
         void printNum(){
             bool leadingZero = true;
             for(int i = getLength() - 1; i >= 0; i--){
@@ -306,22 +311,6 @@ class BigInt{
             cout << endl;
         }
 
-        void clean(){
-            int i = getLength() - 1;
-            bool negative = _mainNumber[i] == -1;
-            if(negative){
-                _mainNumber.pop_back();
-                i--;
-            }
-            while(_mainNumber[i] <= 0){
-                _mainNumber.pop_back();
-                i--;
-            }
-            if(negative){
-                push(-1);
-            }
-        }
-
         friend ostream& operator<<(ostream& os, const BigInt& int1);
 };
 
@@ -331,83 +320,34 @@ ostream& operator<<(ostream& os, BigInt& int1){
 }
 
 
-// BigInt bigFactorial(BigInt n){
-//     // cout << n << endl;
-//     BigInt one = BigInt(1, 0);
-//     if(n == one){
-//         return one;
-//     }
-//     return n * bigFactorial(n - BigInt(1, 0));
-// }
-
 BigInt bigFactorial(BigInt n){
-    BigInt product = BigInt(1, 0);
-    int i = 1;
-    while(1){
-        // printf("i = %d\n", i);
-        if(n == BigInt(1, 0)){
-            break;
-        }
-        // cout << " Product: ";
-        // if(i == 100){
-        //     break;
-        // }
-        // printf("%d\n", i);
-        product = product * n;
-        printf("n = ");
-        n.printWhole();
-        printf("Product = ");
-        product.printWhole();
-        n = n - BigInt(1, 0);
-        i++;
+    // cout << n << endl;
+    BigInt one = BigInt(1, 0);
+    if(n == one){
+        return one;
     }
-    return product;
+    return n * bigFactorial(n - BigInt(1, 0));
 }
-
 
 // BigInt bigFactorial(BigInt n){
 //     BigInt product = BigInt(1, 0);
 //     int i = 1;
 //     while(1){
-//         // printf("i = %d\n", i);
-//         if(n < BigInt(i, 0)){
-//             // printf("Broken %d %d\n", n.getLength(), BigInt(i, 0).getLength());
-//             // n.printNum();
-//             // BigInt(i, 0).printNum();
+//         if(n == BigInt(1, 0)){
 //             break;
 //         }
-//         // cout << " Product: ";
-//         // if(i == 100){
-//         //     break;
-//         // }
-//         printf("Factorial of %d = \n", i);
-//         product = product * BigInt(i, 0);
-//         product.printNum();
-//         // n = n - BigInt(1, 0);
+//         product = product * n;
+//         n = n - BigInt(1, 0);
 //         i++;
 //     }
 //     return product;
 // }
 
+
 int main(){
     BigInt int1 = BigInt(100, 0);
     BigInt int2 = BigInt(1, 0);
-    // BigInt sum  = int1 + int2;
-    // BigInt product  = int1 * int2;
-    BigInt difference = int1 - int2;
-    difference.printNum();
-    // sum.printWhole();
-    // product.printWhole();
-    // printf("%d\n", int1.getLength());
-    // printf("%d\n", int2.getLength());
-    // BigInt fact = bigFactorial(BigInt(100 , 0));
-    // BigInt(301, 0).printWhole();
-    // fact = fact * BigInt(100, 0);
-    // cout << "exit" << endl;
-    // cout << factorial << endl;
-    // fact.printNum();
-    // printf("%d\n", BigInt(100, 0) - BigInt(99,0) >= BigInt(10, 0));
-    // printf("%d\n", fact.getLength());
-    // cout << endl;
+    BigInt fact = bigFactorial(BigInt(300 , 0));
+    fact.printNum();
 
 }
