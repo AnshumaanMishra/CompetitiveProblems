@@ -1,4 +1,5 @@
-igInt bigFactorial(BigInt n){
+
+// BigInt bigFactorial(BigInt n){
 //     BigInt product = BigInt(1, 0);
 //     int i = 1;
 //     while(1){

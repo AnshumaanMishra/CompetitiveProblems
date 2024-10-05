@@ -7,16 +7,8 @@ class BigInt{
         int _length = 0;
 
     public:
-        BigInt(long long int inputNum, int length){
-            if((inputNum == 0) && (length != 0)){
-                _length = length;
-                vector<int> temp(length, 0);
-                _mainNumber = temp;
-            }
-            else if(length == 0){
-                _mainNumber = vector(0, 0);
-            }
-            else if(inputNum == 0){
+        BigInt(long long int inputNum){
+            if(inputNum == 0){
                 _mainNumber.push_back(0);
             }
             while(inputNum > 0){
@@ -24,6 +16,10 @@ class BigInt{
                 _length++;
                 inputNum /= 10;
             }
+        }
+
+        BigInt(){
+            _mainNumber = vector(0, 0);
         }
 
         int getLength(){
@@ -49,7 +45,7 @@ class BigInt{
                 return (_num2 + *this);
             }
             // int maxLen = (len1 > len2) ? len1 : len2;
-            BigInt answer = BigInt(0, 0);
+            BigInt answer = BigInt();
             int carry = 0;
             int i;
             for(i = 0; i < len1; i++){
@@ -210,7 +206,7 @@ class BigInt{
             }
             int len1 = getLength();
             int len2 = _num2.getLength();
-            BigInt answer = BigInt(0, 0);
+            BigInt answer = BigInt();
             int borrow = 0;
             // cout << len1 << " " << len2 << " " << (len2 - len1) << endl;
             // _num2.push(0);
@@ -228,7 +224,7 @@ class BigInt{
         }
 
         BigInt operator*(int powerOf10){
-            BigInt answer = BigInt(0, 0);
+            BigInt answer = BigInt();
             for(int i = 0; i < getLength() + powerOf10; i++){
                 if(i < powerOf10){
                     answer.push(0);
@@ -247,12 +243,12 @@ class BigInt{
             int len1 = getLength();
             int len2 = _num2.getLength();
             // int maxLen = (len1 > len2) ? len1 : len2;
-            BigInt answer = BigInt(0, 0);
+            BigInt answer = BigInt();
             int carry = 0;
             int i, j;
             for(i = 0; i < len1; i++){
                 int currentDigit = _mainNumber[i];
-                BigInt currentRow = BigInt(0, 0);
+                BigInt currentRow = BigInt();
                 for(j = 0; j < len2; j++){
                     int currentInnerDigit = _num2[j];
                     // cout << currentDigit << " " << currentInnerDigit << " " << (currentInnerDigit * currentDigit + carry) % 10 << endl;
@@ -279,7 +275,23 @@ class BigInt{
             return answer;
         }
 
-        
+        BigInt operator/(int _num2){
+            BigInt answer = BigInt();
+            if(_num2 / 10 == 0){
+                int remainder = 0;
+                for(int i = getLength(); i >= 0; i--){
+                    printf("MainNumer: %d, Divisor: %d\n", _mainNumber[i], _num2);
+                    answer.push((_mainNumber[i] + 10 * remainder) / _num2);
+                    remainder = _mainNumber[i] % _num2;
+                }   
+            }
+            return answer;
+        }
+
+        BigInt operator/(BigInt _num2){
+            BigInt answer = BigInt();
+            return answer;
+        }
 
         void printNum(){
             bool leadingZero = true;
@@ -322,32 +334,20 @@ ostream& operator<<(ostream& os, BigInt& int1){
 
 BigInt bigFactorial(BigInt n){
     // cout << n << endl;
-    BigInt one = BigInt(1, 0);
+    BigInt one = BigInt(1);
     if(n == one){
         return one;
     }
-    return n * bigFactorial(n - BigInt(1, 0));
+    return n * bigFactorial(n - BigInt(1));
 }
-
-// BigInt bigFactorial(BigInt n){
-//     BigInt product = BigInt(1, 0);
-//     int i = 1;
-//     while(1){
-//         if(n == BigInt(1, 0)){
-//             break;
-//         }
-//         product = product * n;
-//         n = n - BigInt(1, 0);
-//         i++;
-//     }
-//     return product;
-// }
 
 
 int main(){
-    BigInt int1 = BigInt(100, 0);
-    BigInt int2 = BigInt(1, 0);
-    BigInt fact = bigFactorial(BigInt(300 , 0));
+    BigInt int1 = BigInt(100);
+    BigInt int2 = BigInt(1);
+    // BigInt quotient = int1 / 2;
+    // quotient.printNum();
+    BigInt fact = bigFactorial(BigInt(100));
     fact.printNum();
 
 }
