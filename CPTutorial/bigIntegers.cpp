@@ -279,12 +279,14 @@ class BigInt{
             BigInt answer = BigInt();
             if(_num2 / 10 == 0){
                 int remainder = 0;
-                for(int i = getLength(); i >= 0; i--){
-                    printf("MainNumer: %d, Divisor: %d\n", _mainNumber[i], _num2);
-                    answer.push((_mainNumber[i] + 10 * remainder) / _num2);
-                    remainder = _mainNumber[i] % _num2;
+                for(int i = getLength() - 1; i >= 0; i--){
+                    int currentNumber = (_mainNumber[i] + 10 * remainder);
+                    // printf("MainNumer: %d, Divisor: %d, Quotient = %d, Remainder = %d\n", _mainNumber[i], _num2, currentNumber / _num2, currentNumber % _num2);
+                    answer.push(currentNumber / _num2);
+                    remainder = currentNumber % _num2;
                 }   
             }
+            answer.reverse();
             return answer;
         }
 
@@ -323,6 +325,21 @@ class BigInt{
             cout << endl;
         }
 
+        void reverse(){
+            // BigInt temp = BigInt();
+            for(int i = getLength() - 1; i >= (getLength() - 1)/2; i--){
+                int temp = _mainNumber[i];
+                _mainNumber[i] = _mainNumber[getLength() - 1 - i];
+                _mainNumber[getLength() - 1 - i] = temp;
+            }
+        }
+
+        void clean(){
+            for(int i = getLength() - 1; i >= 0; i--){
+
+            }
+        }
+
         friend ostream& operator<<(ostream& os, const BigInt& int1);
 };
 
@@ -345,9 +362,9 @@ BigInt bigFactorial(BigInt n){
 int main(){
     BigInt int1 = BigInt(100);
     BigInt int2 = BigInt(1);
-    // BigInt quotient = int1 / 2;
-    // quotient.printNum();
-    BigInt fact = bigFactorial(BigInt(100));
-    fact.printNum();
+    BigInt quotient = int1 / 4;
+    quotient.printNum();
+    // BigInt fact = bigFactorial(BigInt(1000));
+    // fact.printNum();
 
 }
