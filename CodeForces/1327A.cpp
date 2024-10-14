@@ -38,6 +38,5 @@ int main(){
         }
         t--;
     }
-    // cout << canBeRepresented(10, 3, 1) << endl;
     return 0;
 }
