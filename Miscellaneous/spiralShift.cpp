@@ -2,10 +2,6 @@
 #include <cmath>
 using namespace std;
 
-void printArray(int n, int* array[]){
-    
-}
-
 int main(){
     int dim = 3;
     int array[dim][dim];
@@ -29,7 +25,6 @@ int main(){
 
     int innerx = dim / 2;
     int innery = dim / 2 - !(dim % 2);
-    // cout << innerx << " " << innery << endl;
     int innermost = array[innerx][innery];
 
     int x = innerx;
@@ -65,10 +60,9 @@ int main(){
             if(x == 0 && y == 0){
                 break;
             }
-            // cout << "x = " << x << ", " << "y = " << y << endl;
-            // cout << array[x][y] << " " << array[x + xdir][y + ydir] << endl;
-            // cout << xdir << " " << ydir << endl;
+            int temp = array[x][y];
             array[x][y] = array[x + xdir][y + ydir];
+            array[x + xdir][y + ydir] = temp;
             x += xdir;
             y += ydir;
             i++;
@@ -95,10 +89,9 @@ int main(){
         }
         i = 0;
         while(i < steps){
-            // cout << "x = " << x << ", " << "y = " << y << endl;
-            // cout << array[x][y] << " " << array[x + xdir][y + ydir] << endl; 
-            // cout << xdir << " " << ydir << endl;
+            int temp = array[x][y];
             array[x][y] = array[x + xdir][y + ydir];
+            array[x + xdir][y + ydir] = temp;
             x += xdir;
             y += ydir;
             i++;
@@ -109,7 +102,6 @@ int main(){
         steps++;
 
     }
-    array[0][0] = innermost;
 
 
     for(int i = 0; i < dim; i++){
