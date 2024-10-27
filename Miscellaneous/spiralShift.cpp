@@ -3,7 +3,7 @@
 using namespace std;
 
 int main(){
-    int dim = 3;
+    int dim = 10;
     int array[dim][dim];
     for(int i = 0; i < dim; i++){
         for(int j = 0; j < dim; j++){
